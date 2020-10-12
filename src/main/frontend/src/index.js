@@ -4,6 +4,7 @@ import React from 'react';
 // tag::react-dom[]
 import ReactDOM from 'react-dom';
 // end::react-dom[]
+import 'fontsource-ibm-plex-sans/latin.css';
 import './Styles/index.css';
 import App from './Components/App';
 
