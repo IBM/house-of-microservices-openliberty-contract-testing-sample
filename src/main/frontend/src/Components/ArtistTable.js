@@ -11,7 +11,7 @@ import 'react-table-6/react-table.css';
 
 // tag::class[]
 class ArtistTable extends Component {
-// end::class[]
+  // end::class[]
   // tag::state-object[]
   state = {
     posts: [],
@@ -24,9 +24,9 @@ class ArtistTable extends Component {
   getArtistsInfo() {
     // tag::axios[]
     axios('http://localhost:9080/artists')
-    // end::axios[]
+      // end::axios[]
       // tag::then-method[]
-      .then(response => {
+      .then((response) => {
         // tag::response-data[]
         const artists = response.data;
         // end::response-data[]
@@ -41,19 +41,19 @@ class ArtistTable extends Component {
             posts.push({ ...rest, ...album });
             // end::spread-two[]
           }
-        };
+        }
         // end::convert-data[]
         // tag::set-state[]
         this.setState({
           // tag::data[]
           posts,
           // end::data[]
-          isLoading: false
+          isLoading: false,
         });
         // end::set-state[]
-      // end::then-method[]
+        // end::then-method[]
       })
-      .catch(error => this.setState({ error, isLoading: false }));
+      .catch((error) => this.setState({ error, isLoading: false }));
   }
   // end::get-posts[]
 
@@ -66,59 +66,61 @@ class ArtistTable extends Component {
   render() {
     const { isLoading, posts } = this.state;
     // tag::table-info[]
-    const columns = [{
-      Header: 'Artist Info',
-      columns: [
-        {
-          Header: 'Artist ID',
-          accessor: 'id'
-        },
-        {
-          Header: 'Artist Name',
-          accessor: 'name'
-        },
-        {
-          Header: 'Genres',
-          accessor: 'genres',
-        }
-      ]
-    },
-    {
-      Header: 'Albums',
-      columns: [
-        {
-          Header: 'Title',
-          accessor: 'title',
-        },
-        {
-          Header: 'Number of Tracks',
-          accessor: 'ntracks',
-        }
-      ]
-    }
-  ]
-  // end::table-info[]
+    const columns = [
+      {
+        Header: 'Artist Info',
+        columns: [
+          {
+            Header: 'Artist ID',
+            accessor: 'id',
+          },
+          {
+            Header: 'Artist Name',
+            accessor: 'name',
+          },
+          {
+            Header: 'Genres',
+            accessor: 'genres',
+          },
+        ],
+      },
+      {
+        Header: 'Albums',
+        columns: [
+          {
+            Header: 'Title',
+            accessor: 'title',
+          },
+          {
+            Header: 'Number of Tracks',
+            accessor: 'ntracks',
+          },
+        ],
+      },
+    ];
+    // end::table-info[]
 
-  // tag::return-table[]
-  return (
-    <div>
-      <h2>Artist Web Service</h2>
-      {!isLoading ? (
-        // tag::table[]
-        <ReactTable
-          // tag::prop-posts[]
-          data={posts}
-          // end::prop-posts[]
-          // tag::prop-columns[]
-          columns={columns}
-          // end::prop-columns[]
-          defaultPageSize={4}
-          pageSizeOptions={[4, 5, 6]}
-        />) : (
-        // end::table[]
+    // tag::return-table[]
+    return (
+      <div>
+        <h2>Artist Web Service</h2>
+        {!isLoading ? (
+          // tag::table[]
+          <ReactTable
+            // tag::prop-posts[]
+            data={posts}
+            // end::prop-posts[]
+            // tag::prop-columns[]
+            columns={columns}
+            // end::prop-columns[]
+            defaultPageSize={4}
+            pageSizeOptions={[4, 5, 6]}
+          />
+        ) : (
+          // end::table[]
           <p>Loading .....</p>
         )}
-    </div>
+      </div>
     );
     // end::return-table[]
   }

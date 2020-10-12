@@ -4,7 +4,7 @@ import ArtistTable from './ArtistTable';
 function App() {
   return (
     // tag::react-component[]
-      <ArtistTable/>
+    <ArtistTable />
     // end::react-component[]
   );
 }

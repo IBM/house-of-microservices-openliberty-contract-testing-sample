@@ -1,4 +1,6 @@
 {
     "editor.formatOnPaste": true,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "javascript.preferences.quoteStyle": "single",
+    "prettier.singleQuote": true
 }
