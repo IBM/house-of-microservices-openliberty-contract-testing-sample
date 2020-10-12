@@ -3,23 +3,23 @@ import axios from 'axios';
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
 
-class ArtistTable extends Component {
+class ResidentTable extends Component {
   state = {
     posts: [],
     isLoading: true,
     error: null,
   };
 
-  getArtistsInfo() {
-    axios('http://localhost:9080/artists')
+  getResidentInfo() {
+    axios('http://localhost:9080/resident')
       .then((response) => {
-        const artists = response.data;
+        const resident = response.data;
 
         const posts = [];
-        for (const artist of artists) {
-          const { albums, ...rest } = artist;
-          for (const album of albums) {
-            posts.push({ ...rest, ...album });
+        for (const bodypart of resident) {
+          const { state, ...rest } = bodypart;
+          for (const s of state) {
+            posts.push({ ...rest, ...s });
           }
         }
         this.setState({
@@ -31,46 +31,43 @@ class ArtistTable extends Component {
   }
 
   componentDidMount() {
-    this.getArtistsInfo();
+    this.getResidentInfo();
   }
 
   render() {
     const { isLoading, posts } = this.state;
     const columns = [
       {
-        Header: 'Artist Info',
+        Header: 'Body Part Info',
         columns: [
           {
-            Header: 'Artist ID',
+            Header: 'Body Part ID',
             accessor: 'id',
           },
           {
-            Header: 'Artist Name',
+            Header: 'Body Part Name',
             accessor: 'name',
-          },
-          {
-            Header: 'Genres',
-            accessor: 'genres',
           },
         ],
       },
       {
-        Header: 'Albums',
+        Header: 'State',
         columns: [
           {
-            Header: 'Title',
+            Header: 'State',
             accessor: 'title',
           },
           {
-            Header: 'Number of Tracks',
-            accessor: 'ntracks',
+            Header: 'Number of Instances',
+            accessor: 'ninstances',
           },
         ],
       },
     ];
+
     return (
       <div>
-        <h2>Artist Web Service</h2>
+        <h2>House Web Service</h2>
         {!isLoading ? (
           <ReactTable
             data={posts}
@@ -86,4 +83,4 @@ class ArtistTable extends Component {
   }
 }
 
-export default ArtistTable;
+export default ResidentTable;

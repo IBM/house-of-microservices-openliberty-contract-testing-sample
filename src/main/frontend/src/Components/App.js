@@ -1,8 +1,8 @@
 import React from 'react';
-import ArtistTable from './ArtistTable';
+import ResidentTable from './ResidentTable';
 
 function App() {
-  return <ArtistTable />;
+  return <ResidentTable />;
 }
 
 export default App;
