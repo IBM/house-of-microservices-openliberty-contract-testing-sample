@@ -1,0 +1,5 @@
+target/
+
+src/main/webapp/asset-manifest.json
+src/main/webapp/service-worker.js
+src/main/webapp/index.html

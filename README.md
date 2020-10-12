@@ -6,6 +6,11 @@
 
 ## Usage
 
+```
+mvn process-resources
+mvn liberty:dev
+```
+
 ## Notes
 
 **NOTE: This repository has been configured with the [DCO bot](https://github.com/probot/dco).
