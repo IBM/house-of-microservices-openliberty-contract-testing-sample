@@ -51,6 +51,12 @@ describe('contract tests', () => {
         const el = await waitForElement(() => queryByText(/torso/i));
         expect(el).toBeTruthy();
       });
+
+      test('includes an image for a body part', async () => {
+        const { findAllByRole } = render(<ResidentTable />);
+        const images = await findAllByRole('img');
+        expect(images.length).toBeGreaterThan(0);
+      });
     }
   );
 });

@@ -78,6 +78,21 @@ class ResidentTable extends Component {
       <div>
         <h2>House Web Service</h2>
         {!isLoading ? (
+          <div class="body">
+            {posts.map((part) => (
+              <img
+                key={part.name}
+                alt={part.name}
+                src={'images/' + part.name + '.png'}
+                class="bodypart"
+              />
+            ))}
+          </div>
+        ) : (
+          <div />
+        )}
+
+        {!isLoading ? (
           <ReactTable
             data={posts}
             columns={columns}
