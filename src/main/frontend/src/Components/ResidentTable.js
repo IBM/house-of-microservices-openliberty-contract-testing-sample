@@ -11,6 +11,8 @@ class ResidentTable extends Component {
   };
 
   getResidentInfo() {
+    this.axiosCancelSource = axios.CancelToken.source();
+
     axios('http://localhost:9080/resident', {
       headers: { Accept: 'application/json' },
     })
@@ -29,11 +31,21 @@ class ResidentTable extends Component {
           isLoading: false,
         });
       })
-      .catch((error) => this.setState({ error, isLoading: false }));
+      .catch((error) => {
+        // Don't complain if the request has been cancelled
+        if (this.axiosCancelSource) {
+          console.warn(error);
+        }
+      });
   }
 
   componentDidMount() {
     this.getResidentInfo();
+  }
+
+  componentWillUnmount() {
+    this.axiosCancelSource.cancel();
+    this.axiosCancelSource = null;
   }
 
   render() {

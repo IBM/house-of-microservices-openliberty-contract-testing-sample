@@ -17,7 +17,6 @@ describe('unit tests', () => {
     const { getByText } = render(<ResidentTable />);
     const titleElement = getByText(/House Web Service/i);
     expect(titleElement).toBeInTheDocument();
-    // Because we don't need to wait for a re-render, this will cause a warning about state changes after the test finishes
   });
 });
 
