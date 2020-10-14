@@ -19,13 +19,12 @@ class ResidentTable extends Component {
       .then((response) => {
         const resident = response.data;
 
-        const posts = [];
-        for (const bodypart of resident) {
-          const { state, ...rest } = bodypart;
-          for (const s of state) {
-            posts.push({ ...rest, ...s });
-          }
-        }
+        const posts = Object.entries(resident)
+          .map((b) => {
+            return { name: b[0], state: JSON.stringify(b[1]) };
+          })
+          .flat();
+
         this.setState({
           posts,
           isLoading: false,
@@ -55,10 +54,6 @@ class ResidentTable extends Component {
         Header: 'Body Part Info',
         columns: [
           {
-            Header: 'Body Part ID',
-            accessor: 'id',
-          },
-          {
             Header: 'Body Part Name',
             accessor: 'name',
           },
@@ -69,7 +64,7 @@ class ResidentTable extends Component {
         columns: [
           {
             Header: 'State',
-            accessor: 'title',
+            accessor: 'state',
           },
           {
             Header: 'Number of Instances',

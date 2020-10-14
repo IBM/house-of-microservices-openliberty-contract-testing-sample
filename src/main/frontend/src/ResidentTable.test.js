@@ -1,10 +1,7 @@
-/**
- */
-
 import React from 'react';
 import { render, waitForElement } from '@testing-library/react';
 const { pactWith } = require('jest-pact');
-import expectedResult from '../../../resources/resident.json';
+import expectedResult from './expectedResult.json';
 
 import ResidentTable from './Components/ResidentTable';
 
@@ -51,7 +48,7 @@ describe('contract tests', () => {
 
       test('includes the body part', async () => {
         const { queryByText } = render(<ResidentTable />);
-        const el = await waitForElement(() => queryByText(/album_one/i));
+        const el = await waitForElement(() => queryByText(/torso/i));
         expect(el).toBeTruthy();
       });
     }
