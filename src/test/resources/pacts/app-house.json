@@ -1,0 +1,115 @@
+{
+  "consumer": {
+    "name": "App"
+  },
+  "provider": {
+    "name": "House"
+  },
+  "interactions": [
+    {
+      "description": "a request for the resident",
+      "request": {
+        "method": "GET",
+        "path": "/resident",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "id": "1",
+            "name": "head",
+            "state": [
+              {
+                "title": "album_one",
+                "resident": "foo",
+                "ninstances": 12
+              },
+              {
+                "title": "album_two",
+                "resident": "foo",
+                "ninstances": 15
+              }
+            ]
+          },
+          {
+            "id": "2",
+            "name": "torso",
+            "state": [
+              {
+                "title": "album_rock",
+                "resident": "bar",
+                "ninstances": 15
+              }
+            ]
+          },
+          {
+            "id": "3",
+            "name": "foot",
+            "state": [
+              {
+                "title": "album_dj",
+                "resident": "dj",
+                "ninstances": 7
+              }
+            ]
+          },
+          {
+            "id": "4",
+            "name": "flow",
+            "genres": "R&B",
+            "state": [
+              {
+                "title": "album_long",
+                "resident": "flow",
+                "ninstances": 22
+              }
+            ]
+          },
+          {
+            "id": "5",
+            "name": "arm",
+            "state": [
+              {
+                "title": "album_short",
+                "resident": "cc",
+                "ninstances": 5
+              }
+            ]
+          },
+          {
+            "id": "6",
+            "name": "eyes",
+            "state": [
+              {
+                "title": "album_one",
+                "resident": "axis",
+                "ninstances": 9
+              },
+              {
+                "title": "album_two",
+                "resident": "axis",
+                "ninstances": 8
+              },
+              {
+                "title": "album_three",
+                "resident": "axis",
+                "ninstances": 11
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

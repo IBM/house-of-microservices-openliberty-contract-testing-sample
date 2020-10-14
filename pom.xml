@@ -41,6 +41,18 @@
             <version>5.6.2</version>
             <scope>test</scope>
         </dependency>
+
+		<dependency>
+    		<groupId>au.com.dius</groupId>
+    		<artifactId>pact-jvm-provider</artifactId>
+    		<version>4.0.10</version>
+		</dependency>        
+
+		<dependency>
+    		<groupId>au.com.dius</groupId>
+    		<artifactId>pact-jvm-provider-junit5</artifactId>   
+    		<version>4.0.10</version>
+		</dependency>
     </dependencies>
 
     <build>
