@@ -39,7 +39,7 @@ describe('contract tests', () => {
             headers: { Accept: 'application/json' },
           },
           willRespondWith: {
-            status: 201,
+            status: 200,
             headers: {
               'Content-Type': 'application/json',
             },
