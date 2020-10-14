@@ -1,8 +1,6 @@
 # house-of-microservices-openliberty-contract-testing-sample
 
-
 ## Scope
-
 
 ## Usage
 
@@ -10,6 +8,18 @@
 mvn process-resources
 mvn liberty:dev
 ```
+
+Access the application on `http:\\localhost:9080`.
+
+For development of the front-end, start the server and front end application separately:
+
+```
+mvn liberty:dev &
+cd src/main/frontend
+npm start
+```
+
+Access the application on `http:\\localhost:3000`.
 
 ## Notes
 
@@ -32,7 +42,7 @@ example:
 
 ## License
 
-All source files must include a Copyright and License header. The SPDX license header is 
+All source files must include a Copyright and License header. The SPDX license header is
 preferred because it can be easily scanned.
 
 If you would like to see the detailed LICENSE click [here](LICENSE).
