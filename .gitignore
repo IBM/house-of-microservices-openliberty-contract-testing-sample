@@ -4,3 +4,4 @@ src/main/webapp/asset-manifest.json
 src/main/webapp/service-worker.js
 src/main/webapp/index.html
 src/main/frontend/pact/logs/
+src/main/frontend/pact/
