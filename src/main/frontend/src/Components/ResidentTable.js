@@ -11,7 +11,9 @@ class ResidentTable extends Component {
   };
 
   getResidentInfo() {
-    axios('http://localhost:9080/resident')
+    axios('http://localhost:9080/resident', {
+      headers: { Accept: 'application/json' },
+    })
       .then((response) => {
         const resident = response.data;
 
