@@ -10,10 +10,9 @@ import axios from 'axios';
 axios.defaults.adapter = require('axios/lib/adapters/http');
 
 describe('unit tests', () => {
-  test('renders a suitable title', async () => {
-    const { getByText } = render(<ResidentTable />);
-    const titleElement = getByText(/House Web Service/i);
-    expect(titleElement).toBeInTheDocument();
+  test('creates a div with a suitable class', async () => {
+    const { container } = render(<ResidentTable />);
+    expect(container.firstChild).toHaveClass('resident');
   });
 });
 

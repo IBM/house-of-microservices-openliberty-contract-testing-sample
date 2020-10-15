@@ -76,7 +76,7 @@ class ResidentTable extends Component {
     ];
 
     return (
-      <div>
+      <div className="resident">
         {!isLoading ? (
           <div className="body">
             {posts.map((part) => (
