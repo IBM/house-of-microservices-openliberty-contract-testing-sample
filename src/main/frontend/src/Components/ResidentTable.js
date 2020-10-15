@@ -108,19 +108,24 @@ class ResidentTable extends Component {
 
     return (
       <div className="page">
-        <House room={room} />
+        <div className="graphics">
+          <House room={room} />
 
-        <div className="resident">
-          {!isLoading ? (
-            <div className="body">
-              {posts.map((part) => (
-                <BodyPart key={part.name} name={part.name} state={part.state} />
-              ))}
-            </div>
-          ) : (
-            <div />
-          )}
-
+          <div className="resident">
+            {!isLoading ? (
+              <div className="body">
+                {posts.map((part) => (
+                  <BodyPart
+                    key={part.name}
+                    name={part.name}
+                    state={part.state}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div />
+            )}
+          </div>
           {!isLoading ? (
             <ReactTable
               data={posts}

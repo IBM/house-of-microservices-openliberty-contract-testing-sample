@@ -16,10 +16,15 @@ code {
   display: flex;
 }
 
+.graphics {
+  display: flex;
+}
+
 .body {
   position: relative;
-  height: 400px;
-  width: 400px;
+  height: 600px;
+  width: 600px;
+  left: -180px;
 }
 
 .bodypart {
@@ -40,6 +45,6 @@ code {
 
 .house {
   position: relative;
-  height: 300px;
-  width: 400px;
+  height: 500px;
+  width: 600px;
 }
