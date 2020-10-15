@@ -5,14 +5,18 @@ import expectedResult from './expectedResult.json';
 import House from './Components/House';
 
 test('includes an image', async () => {
-  const { findByRole } = render(<House />);
-  const image = await findByRole('img');
-  expect(image).toBeTruthy();
+  const { findAllByRole } = render(<House />);
+  const images = await findAllByRole('img');
+  expect(images.length).toBeGreaterThan(0);
 });
 
 // This is a weak test, but it might catch some issues
 test('defines a source for the image', async () => {
-  const { findByRole, debug } = render(<House />);
-  const image = await findByRole('img');
-  expect(image).toHaveAttribute('src', expect.stringContaining('.png'));
+  const { findByAltText } = render(<House room="kitchen" />);
+  const image = await findByAltText('kitchen');
+  expect(image).toBeTruthy();
+  expect(image).toHaveAttribute(
+    'src',
+    expect.stringContaining('house-kitchen.png')
+  );
 });

@@ -52,6 +52,11 @@ describe('contract tests', () => {
           matcher: '^(awake|asleep)$',
         });
 
+        matchyResult.room = Matchers.term({
+          generate: 'kitchen',
+          matcher: '^(kitchen|bedroom|bathroom)$',
+        });
+
         const interaction = {
           uponReceiving: 'a request for the residents current state',
           withRequest: {

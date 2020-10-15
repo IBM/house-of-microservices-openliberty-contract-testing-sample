@@ -25,12 +25,17 @@ public class ResidentResource {
     @Path("wakeup")
     public void wakeResident() {
         abby = new Resident();
+        abby.setRoom("bedroom");
         pause();
+        abby.setRoom("bathroom");
         abby = new Bathroom().visit(abby);
         pause();
+        abby.setRoom("kitchen");
         abby = new Kitchen().visit(abby);
         pause();
+        abby.setRoom("bedroom");
         abby = new Bedroom().visit(abby);
+
     }
 
     @GET

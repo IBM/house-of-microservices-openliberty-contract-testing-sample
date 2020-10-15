@@ -9,6 +9,7 @@ import sample.bodyparts.Torso;
 
 public class Resident {
 
+	private String room = "?";
 	private Head head = new Head();
 	private Hair hair = new Hair();
 	private Eyes eyes = new Eyes();
@@ -38,5 +39,13 @@ public class Resident {
 
 	public Eyes getEyes() {
 		return eyes;
+	}
+
+	public String getRoom() {
+		return room;
+	}
+
+	public void setRoom(String newRoom) {
+		room = newRoom;
 	}
 }

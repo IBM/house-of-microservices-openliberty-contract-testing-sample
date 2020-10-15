@@ -33,7 +33,8 @@
           },
           "eyes": {
             "state": "awake"
-          }
+          },
+          "room": "kitchen"
         },
         "matchingRules": {
           "$.body.hair.state": {
@@ -47,6 +48,10 @@
           "$.body.eyes.state": {
             "match": "regex",
             "regex": "^(awake|asleep)$"
+          },
+          "$.body.room": {
+            "match": "regex",
+            "regex": "^(kitchen|bedroom|bathroom)$"
           }
         }
       }

@@ -14,7 +14,11 @@ class ResidentTable extends Component {
 
   wakeupResident() {
     this.axiosCancelSource = axios.CancelToken.source();
-
+    this.setState({
+      room: 'unknown',
+      posts: [],
+      isLoading: true,
+    });
     // We rely on axios.defaults.baseURL for the base url
     axios.put('/resident/wakeup');
   }
@@ -29,6 +33,7 @@ class ResidentTable extends Component {
     })
       .then((response) => {
         const resident = response.data;
+        const room = resident.room;
 
         const posts = Object.entries(resident)
           .map((b) => {
@@ -46,6 +51,7 @@ class ResidentTable extends Component {
         }
 
         this.setState({
+          room,
           posts,
           isLoading: false,
         });
@@ -74,7 +80,7 @@ class ResidentTable extends Component {
   }
 
   render() {
-    const { isLoading, posts } = this.state;
+    const { isLoading, posts, room } = this.state;
     const columns = [
       {
         Header: 'Body Part Info',
@@ -102,7 +108,7 @@ class ResidentTable extends Component {
 
     return (
       <div className="page">
-        <House />
+        <House room={room} />
 
         <div className="resident">
           {!isLoading ? (
