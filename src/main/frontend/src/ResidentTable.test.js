@@ -27,11 +27,23 @@ describe('contract tests', () => {
       var servers = pact.listServers();
 
       beforeEach(() => {
-        const interaction = {
-          uponReceiving: 'a request for the resident',
+        const wakeInteraction = {
+          uponReceiving: 'a request for the resident to wake up',
           withRequest: {
             method: 'GET',
-            path: '/resident',
+            path: '/resident/wakeup',
+          },
+          willRespondWith: {
+            status: 200,
+          },
+        };
+        provider.addInteraction(wakeInteraction);
+
+        const interaction = {
+          uponReceiving: 'a request for the residents current state',
+          withRequest: {
+            method: 'GET',
+            path: '/resident/state',
             headers: { Accept: 'application/json' },
           },
           willRespondWith: {

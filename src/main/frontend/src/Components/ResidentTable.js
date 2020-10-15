@@ -11,11 +11,21 @@ class ResidentTable extends Component {
     error: null,
   };
 
-  getResidentInfo() {
+  wakeupResident() {
     this.axiosCancelSource = axios.CancelToken.source();
 
     // We rely on axios.defaults.baseURL for the base url
-    axios('/resident', {
+    axios('/resident/wakeup', {
+      headers: { Accept: 'application/json' },
+    });
+  }
+
+  getResidentInfo() {
+    this.counter++;
+    this.axiosCancelSource = axios.CancelToken.source();
+
+    // We rely on axios.defaults.baseURL for the base url
+    axios('/resident/state', {
       headers: { Accept: 'application/json' },
     })
       .then((response) => {
@@ -30,6 +40,11 @@ class ResidentTable extends Component {
             };
           })
           .flat();
+        // Poll our data; SSE or websockets would be cleaner, but also more complicated!
+        // To avoid being super-hungry, only poll for 10s after load
+        if (this.counter < 10) {
+          this.timer = setTimeout(() => this.getResidentInfo(), 1000);
+        }
 
         this.setState({
           posts,
@@ -45,12 +60,18 @@ class ResidentTable extends Component {
   }
 
   componentDidMount() {
+    this.counter = 0;
+    this.wakeupResident();
     this.getResidentInfo();
   }
 
   componentWillUnmount() {
-    this.axiosCancelSource.cancel();
-    this.axiosCancelSource = null;
+    clearTimeout(this.timer);
+    this.timer = null;
+    if (this.axiosCancelSource) {
+      this.axiosCancelSource.cancel();
+      this.axiosCancelSource = null;
+    }
   }
 
   render() {
