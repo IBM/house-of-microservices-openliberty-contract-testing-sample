@@ -24,8 +24,11 @@ public class ResidentResource {
     @Path("wakeup")
     public void wakeResident() {
         abby = new Resident();
+        pause();
         abby = new Bathroom().visit(abby);
+        pause();
         abby = new Kitchen().visit(abby);
+        pause();
         abby = new Bedroom().visit(abby);
     }
 
@@ -34,6 +37,17 @@ public class ResidentResource {
     @Path("state")
     public Resident getResident() {
         return abby;
+    }
+
+    /*
+     * Allow state to be visualised better by leaving pauses between rooms.
+     */
+    private void pause() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }

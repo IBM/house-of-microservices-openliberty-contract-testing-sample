@@ -1,6 +1,7 @@
 package sample.resident;
 
 import sample.bodyparts.Arms;
+import sample.bodyparts.Eyes;
 import sample.bodyparts.Hair;
 import sample.bodyparts.Head;
 import sample.bodyparts.Legs;
@@ -10,6 +11,7 @@ public class Resident {
 
 	private Head head = new Head();
 	private Hair hair = new Hair();
+	private Eyes eyes = new Eyes();
 	private Torso torso = new Torso();
 	private Legs legs = new Legs();
 	private Arms arms = new Arms();
@@ -32,5 +34,9 @@ public class Resident {
 
 	public Arms getArms() {
 		return arms;
+	}
+
+	public Eyes getEyes() {
+		return eyes;
 	}
 }

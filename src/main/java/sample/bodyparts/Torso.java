@@ -6,4 +6,8 @@ public class Torso {
     public String getState() {
         return state;
     }
+
+    public void setState(String newState) {
+        state = newState;
+    }
 }

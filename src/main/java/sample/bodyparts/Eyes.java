@@ -1,7 +1,7 @@
 package sample.bodyparts;
 
-public class Hair {
-    private String state = "frizzled";
+public class Eyes {
+    private String state = "awake";
 
     public String getState() {
         return state;
