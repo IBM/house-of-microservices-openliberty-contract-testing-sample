@@ -3,6 +3,7 @@ import axios from 'axios';
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
 import BodyPart from './BodyPart';
+import House from './House';
 
 class ResidentTable extends Component {
   state = {
@@ -102,27 +103,31 @@ class ResidentTable extends Component {
     ];
 
     return (
-      <div className="resident">
-        {!isLoading ? (
-          <div className="body">
-            {posts.map((part) => (
-              <BodyPart key={part.name} name={part.name} state={part.state} />
-            ))}
-          </div>
-        ) : (
-          <div />
-        )}
+      <div className="page">
+        <House />
 
-        {!isLoading ? (
-          <ReactTable
-            data={posts}
-            columns={columns}
-            defaultPageSize={6}
-            pageSizeOptions={[4, 6, 8, 12]}
-          />
-        ) : (
-          <p>Loading .....</p>
-        )}
+        <div className="resident">
+          {!isLoading ? (
+            <div className="body">
+              {posts.map((part) => (
+                <BodyPart key={part.name} name={part.name} state={part.state} />
+              ))}
+            </div>
+          ) : (
+            <div />
+          )}
+
+          {!isLoading ? (
+            <ReactTable
+              data={posts}
+              columns={columns}
+              defaultPageSize={6}
+              pageSizeOptions={[4, 6, 8, 12]}
+            />
+          ) : (
+            <p>Loading .....</p>
+          )}
+        </div>
       </div>
     );
   }

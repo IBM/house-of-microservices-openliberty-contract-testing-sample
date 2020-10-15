@@ -1,5 +1,4 @@
 import React from 'react';
-import House from './House';
 import ResidentTable from './ResidentTable';
 
 import axios from 'axios';
@@ -10,10 +9,7 @@ function App() {
   return (
     <div>
       <h2>House Web Service</h2>
-      <div className="page">
-        <House />
-        <ResidentTable />
-      </div>
+      <ResidentTable />
     </div>
   );
 }
