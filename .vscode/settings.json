@@ -2,5 +2,6 @@
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "javascript.preferences.quoteStyle": "single",
-    "prettier.singleQuote": true
+    "prettier.singleQuote": true,
+    "java.saveActions.organizeImports": true
 }
