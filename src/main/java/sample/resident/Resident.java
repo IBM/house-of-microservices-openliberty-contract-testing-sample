@@ -1,5 +1,6 @@
 package sample.resident;
 
+import sample.bodyparts.Arms;
 import sample.bodyparts.Head;
 import sample.bodyparts.Legs;
 import sample.bodyparts.Torso;

@@ -10,14 +10,19 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import sample.resident.Resident;
+import sample.rooms.*;
 
 @Path("")
 public class ResidentResource {
-    
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Resident getResident() {
-        return new Resident();
+        Resident abby = new Resident();
+        abby = new Bedroom().visit(abby);
+        abby = new Bathroom().visit(abby);
+        abby = new Kitchen().visit(abby);
+        return abby;
     }
 
 }
