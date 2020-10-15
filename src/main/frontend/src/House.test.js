@@ -14,5 +14,5 @@ test('includes an image', async () => {
 test('defines a source for the image', async () => {
   const { findByRole, debug } = render(<House />);
   const image = await findByRole('img');
-  expect(image).toHaveAttribute('src', /.png/);
+  expect(image).toHaveAttribute('src', expect.stringContaining('.png'));
 });
