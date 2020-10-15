@@ -19,9 +19,9 @@ public class ResidentResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Resident getResident() {
         Resident abby = new Resident();
-        abby = new Bedroom().visit(abby);
         abby = new Bathroom().visit(abby);
         abby = new Kitchen().visit(abby);
+        abby = new Bedroom().visit(abby);
         return abby;
     }
 
