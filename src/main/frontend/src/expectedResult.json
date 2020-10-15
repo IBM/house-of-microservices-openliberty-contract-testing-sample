@@ -1,1 +1,6 @@
-{ "head": { "hair": {} }, "legs": {}, "torso": {} }
+{
+  "head": {},
+  "hair": { "state": "frizzled" },
+  "legs": {},
+  "torso": { "state": "hungry" }
+}

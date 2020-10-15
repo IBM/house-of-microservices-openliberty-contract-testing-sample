@@ -15,3 +15,11 @@ test('uses the name for the image', async () => {
   const image = await findByRole('img');
   expect(image).toHaveAttribute('src', 'images/legs.png');
 });
+
+test('adjusts the image name with state if present', async () => {
+  const { findByRole, debug } = render(
+    <BodyPart name="hair" state="frizzled" />
+  );
+  const image = await findByRole('img');
+  expect(image).toHaveAttribute('src', 'images/hair-frizzled.png');
+});

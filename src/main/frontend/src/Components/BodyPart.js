@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 
 class BodyPart extends Component {
   render() {
-    const { name } = this.props;
+    const { name, state } = this.props;
+    let fullName;
+    state ? (fullName = name + '-' + state) : (fullName = name);
 
     return (
       <img
         key={name}
-        alt={name}
-        src={'images/' + name + '.png'}
+        alt={fullName}
+        src={'images/' + fullName + '.png'}
         className="bodypart"
       />
     );

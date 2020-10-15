@@ -23,7 +23,11 @@ class ResidentTable extends Component {
 
         const posts = Object.entries(resident)
           .map((b) => {
-            return { name: b[0], state: JSON.stringify(b[1]) };
+            return {
+              name: b[0],
+              state: b[1].state,
+              innards: JSON.stringify(b[1]),
+            };
           })
           .flat();
 
@@ -69,8 +73,8 @@ class ResidentTable extends Component {
             accessor: 'state',
           },
           {
-            Header: 'Number of Instances',
-            accessor: 'ninstances',
+            Header: 'Innards',
+            accessor: 'innards',
           },
         ],
       },
@@ -81,7 +85,7 @@ class ResidentTable extends Component {
         {!isLoading ? (
           <div className="body">
             {posts.map((part) => (
-              <BodyPart key={part.name} name={part.name} />
+              <BodyPart key={part.name} name={part.name} state={part.state} />
             ))}
           </div>
         ) : (

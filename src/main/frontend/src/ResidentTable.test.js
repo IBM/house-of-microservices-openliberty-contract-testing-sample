@@ -59,6 +59,14 @@ describe('contract tests', () => {
         const images = await findAllByRole('img');
         expect(images.length).toBeGreaterThan(0);
       });
+
+      test('handles state for body parts with state', async () => {
+        const { findByAltText } = render(<ResidentTable />);
+
+        // This is leaking the internals of the body part a bit, but is a handy way to confirm state was handled correctly
+        const image = await findByAltText('hair-frizzled');
+        expect(image).toBeTruthy();
+      });
     }
   );
 });

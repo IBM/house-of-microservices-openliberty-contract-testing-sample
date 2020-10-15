@@ -21,13 +21,13 @@
           "Content-Type": "application/json"
         },
         "body": {
-          "head": {
-            "hair": {
-            }
+          "head": {},
+          "hair": {
+            "state": "frizzled"
           },
-          "legs": {
-          },
+          "legs": {},
           "torso": {
+            "state": "hungry"
           }
         }
       }
