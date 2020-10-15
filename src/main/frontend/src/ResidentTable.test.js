@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, waitForElement } from '@testing-library/react';
+const pact = require('@pact-foundation/pact-node');
 const { pactWith } = require('jest-pact');
 import expectedResult from './expectedResult.json';
 
@@ -16,16 +17,15 @@ describe('unit tests', () => {
   });
 });
 
-const port = 9080;
-
 describe('contract tests', () => {
   pactWith(
     {
-      port: port,
       consumer: 'App',
       provider: 'House',
     },
     (provider) => {
+      var servers = pact.listServers();
+
       beforeEach(() => {
         const interaction = {
           uponReceiving: 'a request for the resident',
@@ -46,6 +46,9 @@ describe('contract tests', () => {
       });
 
       test('includes the body part', async () => {
+        // Set a global default so the implementation goes to the right url
+        // (if we ran several tests in parallel this could get messy)
+        axios.defaults.baseURL = provider.mockService.baseUrl;
         const { queryByText } = render(<ResidentTable />);
         const el = await waitForElement(() => queryByText(/torso/i));
         expect(el).toBeTruthy();

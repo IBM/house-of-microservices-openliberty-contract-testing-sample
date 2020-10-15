@@ -14,7 +14,8 @@ class ResidentTable extends Component {
   getResidentInfo() {
     this.axiosCancelSource = axios.CancelToken.source();
 
-    axios('http://localhost:9080/resident', {
+    // We rely on axios.defaults.baseURL for the base url
+    axios('/resident', {
       headers: { Accept: 'application/json' },
     })
       .then((response) => {
