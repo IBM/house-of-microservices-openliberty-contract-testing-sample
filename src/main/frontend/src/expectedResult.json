@@ -2,5 +2,6 @@
   "head": {},
   "hair": { "state": "frizzled" },
   "legs": {},
-  "torso": { "state": "hungry" }
+  "torso": { "state": "hungry" },
+  "eyes": { "state": "awake" }
 }
