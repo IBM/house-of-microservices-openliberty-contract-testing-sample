@@ -78,7 +78,7 @@ class ResidentTable extends Component {
     return (
       <div>
         {!isLoading ? (
-          <div class="body">
+          <div className="body">
             {posts.map((part) => (
               <BodyPart key={part.name} name={part.name} />
             ))}
