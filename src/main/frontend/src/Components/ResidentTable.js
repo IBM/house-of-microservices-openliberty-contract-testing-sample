@@ -15,7 +15,7 @@ class ResidentTable extends Component {
   wakeupResident() {
     this.axiosCancelSource = axios.CancelToken.source();
     this.setState({
-      room: 'unknown',
+      room: null,
       posts: [],
       isLoading: true,
     });
@@ -34,6 +34,9 @@ class ResidentTable extends Component {
       .then((response) => {
         const resident = response.data;
         const room = resident.room;
+
+        // Hackily, filter out the room so it doesn't mess up the body display
+        delete resident.room;
 
         const posts = Object.entries(resident)
           .map((b) => {

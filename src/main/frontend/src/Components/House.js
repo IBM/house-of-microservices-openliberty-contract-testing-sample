@@ -5,14 +5,18 @@ class House extends Component {
     const room = this.props.room;
     return (
       <div>
-        <h4>{room}</h4>
+        {room ? <h4>{room}</h4> : <div className="no-room"></div>}
         <div className="house">
           <img alt="a house" src="images/house.png" className="house-image" />
-          <img
-            alt={room}
-            src={'images/house-' + room + '.png'}
-            className="house-image"
-          />
+          {room ? (
+            <img
+              alt={room}
+              src={'images/house-' + room + '.png'}
+              className="house-image"
+            />
+          ) : (
+            <div className="no-room"></div>
+          )}
         </div>
       </div>
     );
