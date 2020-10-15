@@ -96,8 +96,8 @@ class ResidentTable extends Component {
           <ReactTable
             data={posts}
             columns={columns}
-            defaultPageSize={4}
-            pageSizeOptions={[4, 5, 6]}
+            defaultPageSize={6}
+            pageSizeOptions={[4, 6, 8, 12]}
           />
         ) : (
           <p>Loading .....</p>
