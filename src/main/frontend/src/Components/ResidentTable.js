@@ -16,9 +16,7 @@ class ResidentTable extends Component {
     this.axiosCancelSource = axios.CancelToken.source();
 
     // We rely on axios.defaults.baseURL for the base url
-    axios('/resident/wakeup', {
-      headers: { Accept: 'application/json' },
-    });
+    axios.put('/resident/wakeup');
   }
 
   getResidentInfo() {

@@ -7,10 +7,10 @@
   },
   "interactions": [
     {
-      "description": "a request for the resident",
+      "description": "a request for the residents current state",
       "request": {
         "method": "GET",
-        "path": "/resident",
+        "path": "/resident/state",
         "headers": {
           "Accept": "application/json"
         }
@@ -21,14 +21,45 @@
           "Content-Type": "application/json"
         },
         "body": {
-          "head": {},
+          "head": {
+          },
           "hair": {
             "state": "frizzled"
           },
-          "legs": {},
+          "legs": {
+          },
           "torso": {
-            "state": "hungry"
+            "state": "full"
+          },
+          "eyes": {
+            "state": "awake"
           }
+        },
+        "matchingRules": {
+          "$.body.hair.state": {
+            "match": "regex",
+            "regex": "^(frizzled|combed)$"
+          },
+          "$.body.torso.state": {
+            "match": "regex",
+            "regex": "^(full|hungry)$"
+          },
+          "$.body.eyes.state": {
+            "match": "regex",
+            "regex": "^(awake|asleep)$"
+          }
+        }
+      }
+    },
+    {
+      "description": "a request for the resident to wake up",
+      "request": {
+        "method": "PUT",
+        "path": "/resident/wakeup"
+      },
+      "response": {
+        "status": 204,
+        "headers": {
         }
       }
     }

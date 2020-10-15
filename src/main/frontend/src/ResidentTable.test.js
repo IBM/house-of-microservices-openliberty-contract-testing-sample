@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, waitForElement } from '@testing-library/react';
-const pact = require('@pact-foundation/pact-node');
+import { Matchers } from '@pact-foundation/pact';
 const { pactWith } = require('jest-pact');
 import expectedResult from './expectedResult.json';
 
@@ -24,20 +24,33 @@ describe('contract tests', () => {
       provider: 'House',
     },
     (provider) => {
-      var servers = pact.listServers();
-
       beforeEach(() => {
         const wakeInteraction = {
           uponReceiving: 'a request for the resident to wake up',
           withRequest: {
-            method: 'GET',
+            method: 'PUT',
             path: '/resident/wakeup',
           },
           willRespondWith: {
-            status: 200,
+            status: 204,
           },
         };
         provider.addInteraction(wakeInteraction);
+
+        const matchyResult = expectedResult;
+        // in a few places there's a couple of values we could take, so use pact matchers
+        matchyResult.hair.state = Matchers.term({
+          generate: 'frizzled',
+          matcher: '^(frizzled|combed)$',
+        });
+        matchyResult.torso.state = Matchers.term({
+          generate: 'full',
+          matcher: '^(full|hungry)$',
+        });
+        matchyResult.eyes.state = Matchers.term({
+          generate: 'awake',
+          matcher: '^(awake|asleep)$',
+        });
 
         const interaction = {
           uponReceiving: 'a request for the residents current state',
@@ -51,7 +64,7 @@ describe('contract tests', () => {
             headers: {
               'Content-Type': 'application/json',
             },
-            body: expectedResult,
+            body: matchyResult,
           },
         };
         return provider.addInteraction(interaction);
@@ -64,12 +77,6 @@ describe('contract tests', () => {
         const { queryByText } = render(<ResidentTable />);
         const el = await waitForElement(() => queryByText(/torso/i));
         expect(el).toBeTruthy();
-      });
-
-      test('includes an image for a body part', async () => {
-        const { findAllByRole } = render(<ResidentTable />);
-        const images = await findAllByRole('img');
-        expect(images.length).toBeGreaterThan(0);
       });
 
       test('handles state for body parts with state', async () => {
