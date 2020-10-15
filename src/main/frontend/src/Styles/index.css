@@ -17,10 +17,18 @@ code {
   height: 400px;
 }
 
+.page {
+  display: flex;
+}
+
 .bodypart {
   position: absolute;
   width: 100%;
   height: 100%;
   top: -100px;
   left: 0;
+}
+
+.house-image {
+  width: 300px;
 }

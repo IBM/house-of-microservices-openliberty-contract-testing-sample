@@ -77,7 +77,6 @@ class ResidentTable extends Component {
 
     return (
       <div>
-        <h2>House Web Service</h2>
         {!isLoading ? (
           <div class="body">
             {posts.map((part) => (
