@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
+import BodyPart from './BodyPart';
 
 class ResidentTable extends Component {
   state = {
@@ -80,12 +81,7 @@ class ResidentTable extends Component {
         {!isLoading ? (
           <div class="body">
             {posts.map((part) => (
-              <img
-                key={part.name}
-                alt={part.name}
-                src={'images/' + part.name + '.png'}
-                class="bodypart"
-              />
+              <BodyPart key={part.name} name={part.name} />
             ))}
           </div>
         ) : (
