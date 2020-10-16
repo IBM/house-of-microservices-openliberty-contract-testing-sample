@@ -49,3 +49,7 @@ code {
   height: 500px;
   width: 600px;
 }
+
+.roomLabel {
+  height: 80px;
+}
