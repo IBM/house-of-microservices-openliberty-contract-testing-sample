@@ -1,0 +1,5 @@
+rm -rf src/main/frontend/pact/*
+rm src/main/frontend/src/*contract.test.js
+rm src/test/java/sample/house/*ContractTest.java
+rm src/test/resources/pacts/*
+
