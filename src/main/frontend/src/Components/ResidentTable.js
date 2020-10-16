@@ -13,6 +13,7 @@ class ResidentTable extends Component {
     posts: [],
     isLoading: true,
     error: null,
+    residentName: faker.name.findName(),
   };
 
   getResidentInfo() {
@@ -66,7 +67,8 @@ class ResidentTable extends Component {
   componentDidMount() {
     this.counter = 0;
 
-    cookies.set('resident-name', faker.name.findName());
+    cookies.set('resident-name', this.state.residentName);
+
     this.getResidentInfo();
   }
 
@@ -80,7 +82,7 @@ class ResidentTable extends Component {
   }
 
   render() {
-    const { isLoading, posts, room } = this.state;
+    const { isLoading, posts, room, residentName } = this.state;
     const columns = [
       {
         Header: 'Body Part Info',
@@ -125,6 +127,7 @@ class ResidentTable extends Component {
             ) : (
               <div />
             )}
+            <div className="residentLabel">{residentName}</div>
           </div>
           {!isLoading ? (
             <ReactTable

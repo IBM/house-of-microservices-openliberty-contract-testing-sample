@@ -53,3 +53,8 @@ code {
 .roomLabel {
   height: 80px;
 }
+
+.residentLabel {
+  position: relative;
+  top: -180px;
+}
