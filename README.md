@@ -2,6 +2,8 @@
 
 ## Scope
 
+![the application in action](readme/house-gif.gif)
+
 ## Usage
 
 ```
