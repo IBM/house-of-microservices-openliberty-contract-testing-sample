@@ -26,7 +26,8 @@ class ResidentTable extends Component {
     };
 
     // We rely on axios.defaults.baseURL for the base url
-    axios('/resident', opts)
+    axios
+      .get('/resident', opts)
       .then((response) => {
         this.existingResident = true;
         const resident = response.data;
