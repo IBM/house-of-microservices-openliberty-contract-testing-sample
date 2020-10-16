@@ -4,8 +4,14 @@
 */
 package sample.house;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import javax.ws.rs.CookieParam;
 import javax.ws.rs.GET;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -17,14 +23,20 @@ import sample.rooms.Kitchen;
 
 @Path("")
 public class ResidentResource {
-    // This is - obviously - a ridiculous way of getting session affinity. As a
-    // workaround to allow state to be visualised, it will do!
-    private static Resident abby;
+    private static ExecutorService threadpool = Executors.newCachedThreadPool();
 
-    @PUT
-    @Path("wakeup")
-    public void wakeResident() {
-        abby = new Resident();
+    // This is a non-cloud-safe way of handling session affinity.
+    // For simplicity, it will do!
+    private static Map<String, Resident> residents = new HashMap<>();
+
+    private Resident createResident(String sessionId) {
+        final Resident abby = new Resident();
+        residents.put(sessionId, abby);
+        threadpool.submit(() -> wakeResident(abby));
+        return abby;
+    }
+
+    private void wakeResident(Resident abby) {
         abby.setRoom("bedroom");
         pause();
         abby.setRoom("bathroom");
@@ -40,8 +52,8 @@ public class ResidentResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("state")
-    public Resident getResident() {
+    public Resident getResident(@CookieParam("resident-name") String residentName) {
+        Resident abby = Objects.requireNonNullElseGet(residents.get(residentName), () -> createResident(residentName));
         return abby;
     }
 

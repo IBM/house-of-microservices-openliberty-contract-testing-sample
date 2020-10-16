@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
+import Cookies from 'universal-cookie';
+import faker from 'faker';
 import BodyPart from './BodyPart';
 import House from './House';
 
+const cookies = new Cookies();
 class ResidentTable extends Component {
   state = {
     posts: [],
@@ -12,26 +15,19 @@ class ResidentTable extends Component {
     error: null,
   };
 
-  wakeupResident() {
-    this.axiosCancelSource = axios.CancelToken.source();
-    this.setState({
-      room: null,
-      posts: [],
-      isLoading: true,
-    });
-    // We rely on axios.defaults.baseURL for the base url
-    axios.put('/resident/wakeup');
-  }
-
   getResidentInfo() {
     this.counter++;
     this.axiosCancelSource = axios.CancelToken.source();
 
-    // We rely on axios.defaults.baseURL for the base url
-    axios('/resident/state', {
+    const opts = {
       headers: { Accept: 'application/json' },
-    })
+      withCredentials: true,
+    };
+
+    // We rely on axios.defaults.baseURL for the base url
+    axios('/resident', opts)
       .then((response) => {
+        this.existingResident = true;
         const resident = response.data;
         const room = resident.room;
 
@@ -69,7 +65,8 @@ class ResidentTable extends Component {
 
   componentDidMount() {
     this.counter = 0;
-    this.wakeupResident();
+
+    cookies.set('resident-name', faker.name.findName());
     this.getResidentInfo();
   }
 

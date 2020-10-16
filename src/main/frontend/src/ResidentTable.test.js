@@ -25,18 +25,6 @@ describe('contract tests', () => {
     },
     (provider) => {
       beforeEach(() => {
-        const wakeInteraction = {
-          uponReceiving: 'a request for the resident to wake up',
-          withRequest: {
-            method: 'PUT',
-            path: '/resident/wakeup',
-          },
-          willRespondWith: {
-            status: 204,
-          },
-        };
-        provider.addInteraction(wakeInteraction);
-
         const matchyResult = expectedResult;
         // in a few places there's a couple of values we could take, so use pact matchers
         matchyResult.hair.state = Matchers.term({
@@ -61,7 +49,7 @@ describe('contract tests', () => {
           uponReceiving: 'a request for the residents current state',
           withRequest: {
             method: 'GET',
-            path: '/resident/state',
+            path: '/resident',
             headers: { Accept: 'application/json' },
           },
           willRespondWith: {

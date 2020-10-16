@@ -10,7 +10,7 @@
       "description": "a request for the residents current state",
       "request": {
         "method": "GET",
-        "path": "/resident/state",
+        "path": "/resident",
         "headers": {
           "Accept": "application/json"
         }
@@ -53,18 +53,6 @@
             "match": "regex",
             "regex": "^(kitchen|bedroom|bathroom)$"
           }
-        }
-      }
-    },
-    {
-      "description": "a request for the resident to wake up",
-      "request": {
-        "method": "PUT",
-        "path": "/resident/wakeup"
-      },
-      "response": {
-        "status": 204,
-        "headers": {
         }
       }
     }
