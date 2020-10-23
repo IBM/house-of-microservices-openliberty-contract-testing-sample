@@ -4,6 +4,9 @@
 
 ![the application in action](readme/house-gif.gif)
 
+A demo live-coding - and explaining - part of this application is available in the second half of
+[the app modernisation episode of IBM Tech TV Let's Code!](https://techtv.bemyapp.com/#/conference/5f7230a8c0311b001bf90329).
+
 ## Usage
 
 ```
