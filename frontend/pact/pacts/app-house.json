@@ -1,0 +1,65 @@
+{
+  "consumer": {
+    "name": "App"
+  },
+  "provider": {
+    "name": "House"
+  },
+  "interactions": [
+    {
+      "description": "a request for the resident",
+      "request": {
+        "method": "GET",
+        "path": "/resident",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "head": {
+          },
+          "hair": {
+            "state": "frizzled"
+          },
+          "legs": {
+          },
+          "torso": {
+            "state": "full"
+          },
+          "eyes": {
+            "state": "awake"
+          },
+          "room": "kitchen"
+        },
+        "matchingRules": {
+          "$.body.hair.state": {
+            "match": "regex",
+            "regex": "^(frizzled|combed)$"
+          },
+          "$.body.torso.state": {
+            "match": "regex",
+            "regex": "^(full|hungry)$"
+          },
+          "$.body.eyes.state": {
+            "match": "regex",
+            "regex": "^(awake|asleep)$"
+          },
+          "$.body.room": {
+            "match": "regex",
+            "regex": "^(kitchen|bedroom|bathroom)$"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

@@ -9,22 +9,25 @@ A demo live-coding - and explaining - part of this application is available in t
 
 ## Usage
 
-```
-mvn process-resources
-mvn liberty:dev
-```
+You will need to run the front-end and bff separately.
 
-Access the application on `http:\\localhost:9080`.
-
-For development of the front-end, start the server and front end application separately:
+Frontend:
 
 ```
-mvn liberty:dev &
-cd src/main/frontend
+cd frontend
 npm start
 ```
 
-Access the application on `http:\\localhost:3000`.
+Access the front end on `http:\\localhost:3000`.
+
+BFF ("best friend forever"):
+
+```
+cd bff
+mvn liberty:dev
+```
+
+Access the BFF on `http:\\localhost:9080`.
 
 ## Notes
 

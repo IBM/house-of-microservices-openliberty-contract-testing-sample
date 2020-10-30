@@ -1,0 +1,310 @@
+I, [2020-10-22T15:09:05.810925 #69780]  INFO -- : Registered expected interaction GET /resident
+D, [2020-10-22T15:09:05.811267 #69780] DEBUG -- : {
+  "description": "a request for the resident",
+  "request": {
+    "method": "GET",
+    "path": "/resident",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "head": {
+      },
+      "hair": {
+        "state": {
+          "json_class": "Pact::Term",
+          "data": {
+            "generate": "frizzled",
+            "matcher": {
+              "json_class": "Regexp",
+              "o": 0,
+              "s": "^(frizzled|combed)$"
+            }
+          }
+        }
+      },
+      "legs": {
+      },
+      "torso": {
+        "state": {
+          "json_class": "Pact::Term",
+          "data": {
+            "generate": "full",
+            "matcher": {
+              "json_class": "Regexp",
+              "o": 0,
+              "s": "^(full|hungry)$"
+            }
+          }
+        }
+      },
+      "eyes": {
+        "state": {
+          "json_class": "Pact::Term",
+          "data": {
+            "generate": "awake",
+            "matcher": {
+              "json_class": "Regexp",
+              "o": 0,
+              "s": "^(awake|asleep)$"
+            }
+          }
+        }
+      },
+      "room": {
+        "json_class": "Pact::Term",
+        "data": {
+          "generate": "kitchen",
+          "matcher": {
+            "json_class": "Regexp",
+            "o": 0,
+            "s": "^(kitchen|bedroom|bathroom)$"
+          }
+        }
+      }
+    }
+  },
+  "metadata": null
+}
+I, [2020-10-22T15:09:05.847465 #69780]  INFO -- : Received request GET /resident
+D, [2020-10-22T15:09:05.847556 #69780] DEBUG -- : {
+  "path": "/resident",
+  "query": "",
+  "method": "get",
+  "headers": {
+    "Accept": "application/json",
+    "User-Agent": "axios/0.19.2",
+    "Host": "127.0.0.1:58480",
+    "Connection": "close",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2020-10-22T15:09:05.847897 #69780]  INFO -- : Found matching response for GET /resident
+D, [2020-10-22T15:09:05.848091 #69780] DEBUG -- : {
+  "status": 200,
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "head": {
+    },
+    "hair": {
+      "state": {
+        "json_class": "Pact::Term",
+        "data": {
+          "generate": "frizzled",
+          "matcher": {
+            "json_class": "Regexp",
+            "o": 0,
+            "s": "^(frizzled|combed)$"
+          }
+        }
+      }
+    },
+    "legs": {
+    },
+    "torso": {
+      "state": {
+        "json_class": "Pact::Term",
+        "data": {
+          "generate": "full",
+          "matcher": {
+            "json_class": "Regexp",
+            "o": 0,
+            "s": "^(full|hungry)$"
+          }
+        }
+      }
+    },
+    "eyes": {
+      "state": {
+        "json_class": "Pact::Term",
+        "data": {
+          "generate": "awake",
+          "matcher": {
+            "json_class": "Regexp",
+            "o": 0,
+            "s": "^(awake|asleep)$"
+          }
+        }
+      }
+    },
+    "room": {
+      "json_class": "Pact::Term",
+      "data": {
+        "generate": "kitchen",
+        "matcher": {
+          "json_class": "Regexp",
+          "o": 0,
+          "s": "^(kitchen|bedroom|bathroom)$"
+        }
+      }
+    }
+  }
+}
+I, [2020-10-22T15:09:05.917530 #69780]  INFO -- : Verifying - interactions matched
+I, [2020-10-22T15:09:05.921977 #69780]  INFO -- : Cleared interactions
+I, [2020-10-22T15:09:05.931266 #69780]  INFO -- : Registered expected interaction GET /resident
+D, [2020-10-22T15:09:05.931473 #69780] DEBUG -- : {
+  "description": "a request for the resident",
+  "request": {
+    "method": "GET",
+    "path": "/resident",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "head": {
+      },
+      "hair": {
+        "state": {
+          "json_class": "Pact::Term",
+          "data": {
+            "generate": "frizzled",
+            "matcher": {
+              "json_class": "Regexp",
+              "o": 0,
+              "s": "^(frizzled|combed)$"
+            }
+          }
+        }
+      },
+      "legs": {
+      },
+      "torso": {
+        "state": {
+          "json_class": "Pact::Term",
+          "data": {
+            "generate": "full",
+            "matcher": {
+              "json_class": "Regexp",
+              "o": 0,
+              "s": "^(full|hungry)$"
+            }
+          }
+        }
+      },
+      "eyes": {
+        "state": {
+          "json_class": "Pact::Term",
+          "data": {
+            "generate": "awake",
+            "matcher": {
+              "json_class": "Regexp",
+              "o": 0,
+              "s": "^(awake|asleep)$"
+            }
+          }
+        }
+      },
+      "room": {
+        "json_class": "Pact::Term",
+        "data": {
+          "generate": "kitchen",
+          "matcher": {
+            "json_class": "Regexp",
+            "o": 0,
+            "s": "^(kitchen|bedroom|bathroom)$"
+          }
+        }
+      }
+    }
+  },
+  "metadata": null
+}
+I, [2020-10-22T15:09:05.945092 #69780]  INFO -- : Received request GET /resident
+D, [2020-10-22T15:09:05.945181 #69780] DEBUG -- : {
+  "path": "/resident",
+  "query": "",
+  "method": "get",
+  "headers": {
+    "Accept": "application/json",
+    "User-Agent": "axios/0.19.2",
+    "Host": "127.0.0.1:58480",
+    "Connection": "close",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2020-10-22T15:09:05.945343 #69780]  INFO -- : Found matching response for GET /resident
+D, [2020-10-22T15:09:05.945532 #69780] DEBUG -- : {
+  "status": 200,
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "head": {
+    },
+    "hair": {
+      "state": {
+        "json_class": "Pact::Term",
+        "data": {
+          "generate": "frizzled",
+          "matcher": {
+            "json_class": "Regexp",
+            "o": 0,
+            "s": "^(frizzled|combed)$"
+          }
+        }
+      }
+    },
+    "legs": {
+    },
+    "torso": {
+      "state": {
+        "json_class": "Pact::Term",
+        "data": {
+          "generate": "full",
+          "matcher": {
+            "json_class": "Regexp",
+            "o": 0,
+            "s": "^(full|hungry)$"
+          }
+        }
+      }
+    },
+    "eyes": {
+      "state": {
+        "json_class": "Pact::Term",
+        "data": {
+          "generate": "awake",
+          "matcher": {
+            "json_class": "Regexp",
+            "o": 0,
+            "s": "^(awake|asleep)$"
+          }
+        }
+      }
+    },
+    "room": {
+      "json_class": "Pact::Term",
+      "data": {
+        "generate": "kitchen",
+        "matcher": {
+          "json_class": "Regexp",
+          "o": 0,
+          "s": "^(kitchen|bedroom|bathroom)$"
+        }
+      }
+    }
+  }
+}
+I, [2020-10-22T15:09:05.982074 #69780]  INFO -- : Verifying - interactions matched
+I, [2020-10-22T15:09:05.986232 #69780]  INFO -- : Cleared interactions
+I, [2020-10-22T15:09:05.991836 #69780]  INFO -- : Updating pact for House at /Users/holly/Documents/talks/lets-code-IBM-tech-tv/demo/house-of-microservices-openliberty-contract-testing-sample/src/main/frontend/pact/pacts/app-house.json
+I, [2020-10-22T15:09:05.995179 #69780]  INFO -- : *****************************************************************************
+I, [2020-10-22T15:09:05.995393 #69780]  INFO -- : Updating existing file ./Users/holly/Documents/talks/lets-code-IBM-tech-tv/demo/house-of-microservices-openliberty-contract-testing-sample/src/main/frontend/pact/pacts/app-house.json as pactfile_write_mode is :update
+I, [2020-10-22T15:09:05.995450 #69780]  INFO -- : Only interactions defined in this test run will be updated.
+I, [2020-10-22T15:09:05.995526 #69780]  INFO -- : As interactions are identified by description and provider state, pleased note that if either of these have changed, the old interactions won't be removed from the pact file until the specs are next run with :pactfile_write_mode => :overwrite.
+I, [2020-10-22T15:09:05.995574 #69780]  INFO -- : *****************************************************************************

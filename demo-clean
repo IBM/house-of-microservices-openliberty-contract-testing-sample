@@ -1,5 +1,5 @@
-rm -rf src/main/frontend/pact/*
-rm src/main/frontend/src/*contract.test.js
-rm src/test/java/sample/house/*ContractTest.java
-rm src/test/resources/pacts/*
+rm -rf frontend/pact/*
+rm frontend/src/*contract.test.js
+rm bff/src/test/java/sample/house/*ContractTest.java
+rm bff/src/test/resources/pacts/*
 
